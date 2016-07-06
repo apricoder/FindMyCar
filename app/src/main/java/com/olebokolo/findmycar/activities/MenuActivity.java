@@ -41,5 +41,10 @@ public class MenuActivity extends AppCompatActivity {
 
     private void showActivity(Class activityClass) {
         startActivity(new Intent(FindMyCar.getInstance(), activityClass));
+        animateSlideLeft();
+    }
+
+    private void animateSlideLeft() {
+        overridePendingTransition(R.anim.slide_in_from_right_fast, R.anim.slide_out_to_left_fast);
     }
 }

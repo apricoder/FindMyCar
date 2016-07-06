@@ -21,6 +21,7 @@
         android:gravity="center">
 
         <Button
+            android:background="@drawable/rounded_button"
             android:id="@+id/unpark_button"
             android:paddingLeft="55dp"
             android:paddingRight="55dp"

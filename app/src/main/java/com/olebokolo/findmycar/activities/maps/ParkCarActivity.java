@@ -49,6 +49,16 @@ public class ParkCarActivity extends FragmentActivity implements OnMapReadyCallb
         askPermissionsIfNeeded();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        animateSlideRight();
+    }
+
+    private void animateSlideRight() {
+        overridePendingTransition(R.anim.slide_in_from_left_fast, R.anim.slide_out_to_right_fast);
+    }
+
     private void setupParkButton() {
         findViewById(R.id.park_here_button).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -63,6 +73,12 @@ public class ParkCarActivity extends FragmentActivity implements OnMapReadyCallb
     private void finishActivityWithMessage(String text) {
         showToast(text);
         finish();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        animateSlideRight();
     }
 
     private void showToast(String text) {

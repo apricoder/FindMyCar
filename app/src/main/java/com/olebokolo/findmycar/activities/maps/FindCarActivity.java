@@ -55,6 +55,22 @@ public class FindCarActivity extends FragmentActivity implements OnMapReadyCallb
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        animateSlideRight();
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        animateSlideRight();
+    }
+
+    private void animateSlideRight() {
+        overridePendingTransition(R.anim.slide_in_from_left_fast, R.anim.slide_out_to_right_fast);
+    }
+
     private void askPermissionsIfNeeded() {
         if (permissionService.dontHaveLocationPermission()) {
             permissionService.requestPermissionsFor(this);
@@ -87,7 +103,7 @@ public class FindCarActivity extends FragmentActivity implements OnMapReadyCallb
     }
 
     private LatLng parse(String coordinates) {
-        String[] latLngParts = coordinates.trim().split(":");
+        String[] latLngParts = coordinates.trim().replaceAll(",", ".").split(":");
         double lat = Double.parseDouble(latLngParts[0]);
         double lng = Double.parseDouble(latLngParts[1]);
         return new LatLng(lat, lng);

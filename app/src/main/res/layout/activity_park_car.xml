@@ -36,6 +36,7 @@
             android:text="30,12312 : 11,98247" />
 
         <Button
+            android:background="@drawable/rounded_button"
             android:id="@+id/park_here_button"
             android:paddingLeft="55dp"
             android:paddingRight="55dp"
